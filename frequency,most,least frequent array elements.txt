@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(void){
+    int a[100]={2,3,4,8,5,4,3,3,2,5,6,9,4,5,6},b[100]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int i,j,count,most,n=15,least,repeat=-1;
+    for(i=0;i<n;i++){
+       // count=0;
+        for(j=i+1;j<n;j++){
+            if(b[i]!=repeat){
+                if(a[i]==a[j]){
+                b[i]++;
+                b[j]=repeat;
+            }
+        }
+       }
+    }
+    most=b[0],least=b[0];
+   if(b[i]!=repeat){
+    for(i=0;i<n;i++){
+       if(b[i]!=repeat){
+        if(b[i]<b[i+1]){
+            most=b[i+1];
+        }
+        if(b[i]>b[i+1]){
+            least=b[i+1];
+        }
+       }
+    }
+   }
+    for(i=0;i<n;i++){
+        if(b[i]!=repeat){
+    printf("array element: %d   occurrance: %d\n",a[i],b[i]);
+    }
+    }
+    for(i=0;i<n;i++){
+        if(b[i]==most){
+            printf("most occuring element=%d   occurance=%d\n",a[i],b[i]);
+        }
+        if(b[i]==0){
+            printf("least occuring element=%d  occurrance=%d\n",a[i],b[i]);
+        }
+    }
+
+    return EXIT_SUCCESS;
+}
